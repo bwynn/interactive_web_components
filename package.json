@@ -1,0 +1,9 @@
+{
+  "name" : "Interactive Web Components App",
+  "main" : "server.js",
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "mongoose": "latest"
+  }
+}
