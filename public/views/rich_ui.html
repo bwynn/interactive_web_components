@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="richApp">
+<head>
+  <title>Rich UI</title>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+  <rich_tabs>
+    <rich_pane title="Weather">
+      <div ng-include="'views/weather.html'"></div>
+    </rich_pane>
+    <rich_pane title="Draggable">
+      <div ng-include="'views/draggable.html'"></div>
+    </rich_pane>
+    <rich_pane title="Tables">
+      <div ng-include="'views/tables.html'"></div>
+    </rich_pane>
+  </rich_tabs>
+  <!-- Library Scripts -->
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-route/angular-route.min.js"></script>
+
+  <!-- Application Scripts -->
+  <!-- directives -->
+  <script src="js/directives/rich_panes.js"></script>
+  <script src="js/directives/rich_tabs.js"></script>
+  <!-- controllers -->
+  <script src="js/controllers/weather_controller.js"></script>
+  <!-- application -->
+  <script src="js/rich_ui_app.js"></script>
+</body>
+</html>

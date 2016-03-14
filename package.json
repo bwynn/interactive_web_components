@@ -1,5 +1,5 @@
 {
-  "name" : "Interactive Web Components App",
+  "name" : "interactive_web_components_app",
   "main" : "server.js",
   "dependencies": {
     "express": "latest",
