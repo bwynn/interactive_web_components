@@ -1,1 +1,1 @@
-angular.module('richApp', ['ngRoute','RichTabs', 'RichPanes', 'WeatherController']);
+angular.module('richApp', ['ngRoute', 'RichTabs', 'WeatherController']);

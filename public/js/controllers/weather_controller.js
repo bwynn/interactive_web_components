@@ -21,6 +21,9 @@ angular.module('WeatherController', ['ngRoute'])
       $scope.getWeather();
     };
     $scope.setLocation = function(city) {
-      
-    }
+      $scope.location = city;
+      $scope.getWeather();
+    };
+
+    $scope.getWeather('London');
   }]);

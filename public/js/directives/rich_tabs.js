@@ -5,21 +5,33 @@ angular.module('RichTabs', [])
     translude: true,
     scope: {},
     controller: function($scope) {
-      var panes = $scope.panes = [];
+      $scope.panes = [];
 
       $scope.select = function(pane) {
-        angular.forEach(panes, function(pane) {
+        angular.forEach($scope.panes, function(pane) {
           pane.selected = false;
         });
         pane.selected = true;
       };
       this.addPane = function(pane) {
-        if (panes.length == 0) {
+        if ($scope.panes.length == 0) {
           $scope.select(pane);
         }
-        panes.push(pane);
+        $scope.panes.push(pane);
       };
     },
-    templateUrl: 'views/rich_tabs.html'
+    templateUrl: '/views/rich_tabs.html'
+  };
+})
+.directive('richPane', function() {
+  return {
+    require: '^richTabs',
+    restrict: 'E',
+    transclude: true,
+    templateUrl: '/views/rich_pane.html',
+    scope: {title: '@'},
+    link: function(scope, element, attrs, tabsCtrl) {
+      tabsCtrl.addPane(scope);
+    }
   };
 });
