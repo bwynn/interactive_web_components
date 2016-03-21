@@ -2,25 +2,25 @@ angular.module('RichTabs', [])
 .directive('richTabs', function() {
   return {
     restrict: 'E',
-    translude: true,
+    transclude: true,
     scope: {},
     controller: function($scope) {
-      $scope.panes = [];
+      var panes = $scope.panes = [];
 
       $scope.select = function(pane) {
-        angular.forEach($scope.panes, function(pane) {
+        angular.forEach(panes, function(pane) {
           pane.selected = false;
         });
         pane.selected = true;
       };
       this.addPane = function(pane) {
-        if ($scope.panes.length == 0) {
+        if (panes.length == 0) {
           $scope.select(pane);
         }
-        $scope.panes.push(pane);
+        panes.push(pane);
       };
     },
-    templateUrl: '/views/rich_tabs.html'
+    templateUrl: 'views/rich_tabs.html'
   };
 })
 .directive('richPane', function() {
@@ -28,7 +28,7 @@ angular.module('RichTabs', [])
     require: '^richTabs',
     restrict: 'E',
     transclude: true,
-    templateUrl: '/views/rich_pane.html',
+    templateUrl: 'views/rich_pane.html',
     scope: {title: '@'},
     link: function(scope, element, attrs, tabsCtrl) {
       tabsCtrl.addPane(scope);
